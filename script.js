@@ -26,6 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     pro: 'pro.html'
   };
 
+  const setActiveNav = () => {
+    const current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('[data-nav]').forEach((el) => {
+      const key = el.dataset.nav;
+      const href = routeMap[key];
+      const isActive = href && href.toLowerCase() === current;
+      el.classList.toggle('active', isActive);
+    });
+  };
+
   const go = (key) => {
     const target = routeMap[key];
     if (target) window.location.href = target;
@@ -50,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  setActiveNav();
 
   const setTheme = (theme) => {
     body.classList.remove('theme-dark', 'theme-light');
