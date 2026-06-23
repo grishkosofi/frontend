@@ -20,7 +20,7 @@
           <a href="portfolio.html">Portfolio</a>
           <a class="active" href="auth.html">Profile</a>
         </div>
-        <a class="pro-btn" href="pro.html">⟡ Upgrade to Pro</a>
+        <a class="pro-btn" href="#" id="openProModal">⟡ Upgrade to Pro</a>
       </div>
     </nav>
 
@@ -34,7 +34,7 @@
             <h2 class="profile-name">Mary Sims</h2>
             <p class="text-soft mb-0">mary.sims@email.com</p>
           </div>
-          <a class="pro-outline-btn" href="pro.html">⟡ Upgrade to Pro</a>
+          <a class="pro-outline-btn" href="#" id="openProModal2">⟡ Upgrade to Pro</a>
         </div>
 
         <div class="col-lg-8">
@@ -94,5 +94,38 @@
         </div>
       </section>
     </main>
+
+    <div class="pro-modal-backdrop d-none" id="proModalBackdrop"></div>
+    <div class="pro-modal d-none" id="proModal" role="dialog" aria-modal="true" aria-labelledby="proModalTitle">
+      <button class="pro-modal-close" id="closeProModal" aria-label="Close">×</button>
+      <div class="pro-modal-badge">👑</div>
+      <div class="pro-modal-pill">UPGRADE TO PRO</div>
+      <h2 class="pro-modal-title" id="proModalTitle">Unlock <span>Premium</span> Trading Insights</h2>
+      <p class="pro-modal-text">Get real-time alerts, AI analysis, advanced charts, and unlimited portfolio tracking.</p>
+      <div class="plan-switch">
+        <button class="plan-btn active" data-plan="monthly">Monthly</button>
+        <button class="plan-btn" data-plan="annual">Annual</button>
+        <span class="save-badge d-none" id="saveBadge">Save 30%</span>
+      </div>
+      <div class="pro-price-card">
+        <div>
+          <div class="pro-price-label">PRO</div>
+          <ul class="pro-benefits">
+            <li>Unlimited watchlist</li>
+            <li>Real-time alerts</li>
+            <li>AI-powered stock analysis</li>
+            <li>Advanced candlestick charts</li>
+          </ul>
+        </div>
+        <div class="pro-price-wrap">
+          <div class="pro-price" id="proPrice">$12.99</div>
+          <div class="pro-price-period" id="proPeriod">per month</div>
+        </div>
+      </div>
+      <button class="pro-buy-btn">Buy</button>
+      <button class="pro-trial-btn">Try free 7-days trial</button>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
