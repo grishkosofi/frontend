@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerTab = document.getElementById('registerTab');
   const nameGroup = document.getElementById('nameGroup');
   const submitBtn = document.getElementById('submitBtn');
+  const modeButtons = document.querySelectorAll('.mode-btn');
+  const stocksGrid = document.getElementById('stocksGrid');
+  const newsList = document.getElementById('newsList');
 
   const setTheme = (theme) => {
     body.classList.remove('theme-dark', 'theme-light');
@@ -34,4 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
   loginTab?.addEventListener('click', () => setMode('login'));
   registerTab?.addEventListener('click', () => setMode('register'));
   setMode('register');
+
+  modeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.mode;
+      if (stocksGrid && newsList) {
+        const showStocks = mode === 'stocks';
+        stocksGrid.classList.toggle('d-none', !showStocks);
+        newsList.classList.toggle('d-none', showStocks);
+      }
+    });
+  });
 });
