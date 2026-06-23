@@ -13,14 +13,14 @@
   <body class="app-theme theme-dark">
     <nav class="topbar">
       <div class="topbar-inner container-fluid">
-        <a class="brand" href="index.html"><span class="brand-mark">TX</span><span class="brand-name">Tradix</span></a>
+        <a class="brand" href="index.html" data-nav="home"><span class="brand-mark">TX</span><span class="brand-name">Tradix</span></a>
         <div class="nav-links d-none d-lg-flex">
-          <a class="active" href="index.html">Home</a>
-          <a href="market.html">Markets</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="auth.html">Profile</a>
+          <a class="active" href="index.html" data-nav="home">Home</a>
+          <a href="market.html" data-nav="markets">Markets</a>
+          <a href="portfolio.html" data-nav="portfolio">Portfolio</a>
+          <a href="auth.html" data-nav="profile">Profile</a>
         </div>
-        <a class="pro-btn" href="pro.html">⟡ Upgrade to Pro</a>
+        <a class="pro-btn" href="pro.html" data-nav="pro">⟡ Upgrade to Pro</a>
       </div>
     </nav>
 
@@ -61,7 +61,7 @@
               <h2 class="section-title mb-0">Watchlist</h2>
               <a class="view-all" href="#">View all ›</a>
             </div>
-            <div class="watchlist-item">
+            <div class="watchlist-item" data-link="detail">
               <div class="watch-icon apple"></div>
               <div class="flex-grow-1">
                 <strong>AAPL</strong>
@@ -72,7 +72,7 @@
                 <span class="trend-badge success small">↗ +1.2%</span>
               </div>
             </div>
-            <div class="watchlist-item">
+            <div class="watchlist-item" data-link="detail">
               <div class="watch-icon tesla">T</div>
               <div class="flex-grow-1">
                 <strong>TSLA</strong>
@@ -87,5 +87,7 @@
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

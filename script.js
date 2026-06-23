@@ -17,6 +17,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const proPeriod = document.getElementById('proPeriod');
   const saveBadge = document.getElementById('saveBadge');
 
+  const routeMap = {
+    home: 'index.html',
+    markets: 'market.html',
+    portfolio: 'portfolio.html',
+    profile: 'auth.html',
+    detail: 'detail.html',
+    pro: 'pro.html'
+  };
+
+  const go = (key) => {
+    const target = routeMap[key];
+    if (target) window.location.href = target;
+  };
+
+  document.querySelectorAll('[data-nav]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const key = el.dataset.nav;
+      if (routeMap[key]) {
+        e.preventDefault();
+        go(key);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-link]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const target = el.dataset.link;
+      if (routeMap[target]) {
+        e.preventDefault();
+        go(target);
+      }
+    });
+  });
+
   const setTheme = (theme) => {
     body.classList.remove('theme-dark', 'theme-light');
     body.classList.add(theme);
