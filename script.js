@@ -1,23 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const search = document.getElementById('searchInput');
-  const currency = document.getElementById('currencySelect');
-  if (search) {
-    search.addEventListener('input', () => {
-      document.querySelectorAll('.stock-link, .news-card').forEach(el => {
-        const text = el.textContent.toLowerCase();
-        el.style.display = text.includes(search.value.toLowerCase()) ? '' : 'none';
-      });
+  const body = document.body;
+  const themeToggle = document.getElementById('themeToggle');
+  const loginTab = document.getElementById('loginTab');
+  const registerTab = document.getElementById('registerTab');
+  const nameGroup = document.getElementById('nameGroup');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const setTheme = (theme) => {
+    body.classList.remove('theme-dark', 'theme-light');
+    body.classList.add(theme);
+    if (themeToggle) themeToggle.textContent = theme === 'theme-dark' ? '☼' : '☾';
+  };
+
+  const savedTheme = localStorage.getItem('stockpulse-theme') || 'theme-dark';
+  setTheme(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = body.classList.contains('theme-dark') ? 'theme-light' : 'theme-dark';
+      setTheme(next);
+      localStorage.setItem('stockpulse-theme', next);
     });
   }
-  if (currency) {
-    currency.addEventListener('change', () => alert(`Currency changed to ${currency.value}. Connect API conversion here.`));
-  }
-  const chartCanvas = document.getElementById('priceChart');
-  if (chartCanvas && window.Chart) {
-    new Chart(chartCanvas, {
-      type: 'line',
-      data: { labels: ['1','2','3','4','5','6','7'], datasets: [{ label: 'AAPL', data: [189,191,190,192,193,192,194], borderColor: '#4ea3ff', tension: .35, fill: false }] },
-      options: { responsive: true, plugins: { legend: { labels: { color: '#ecf2ff' } } }, scales: { x: { ticks: { color: '#9fb0cc' }, grid: { color: 'rgba(255,255,255,.06)' } }, y: { ticks: { color: '#9fb0cc' }, grid: { color: 'rgba(255,255,255,.06)' } } } }
-    });
-  }
+
+  const setMode = (mode) => {
+    const isRegister = mode === 'register';
+    loginTab?.classList.toggle('active', !isRegister);
+    registerTab?.classList.toggle('active', isRegister);
+    nameGroup?.classList.toggle('d-none', !isRegister);
+    if (submitBtn) submitBtn.textContent = isRegister ? 'Create Account' : 'Log in';
+  };
+
+  loginTab?.addEventListener('click', () => setMode('login'));
+  registerTab?.addEventListener('click', () => setMode('register'));
+  setMode('register');
 });
