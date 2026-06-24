@@ -1,81 +1,42 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { getOverview, getStockQuote, getStockHistory, getStockNews, searchStocks, getLocationMarket } from './services/stockApi.js';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import stocksRouter from './routes/stocks.js';
+import marketRouter from './routes/market.js';
+import locationRouter from './routes/location.js';
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'tradix-backend' });
+app.get('/api/health', (_, res) => {
+  res.json({ ok: true, time: new Date().toISOString() });
 });
 
-app.get('/api/market/overview', async (req, res) => {
-  try {
-    const region = req.query.region || 'US';
-    const data = await getOverview(region);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to load market overview' });
-  }
+app.use('/api/stocks', stocksRouter);
+app.use('/api/market', marketRouter);
+app.use('/api/location', locationRouter);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const frontendDir = path.resolve(__dirname, '..');
+
+app.use(express.static(frontendDir));
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({
+    error: 'Server error',
+    details: err.message,
+  });
 });
 
-app.get('/api/stocks', async (req, res) => {
-  try {
-    const region = req.query.region || 'US';
-    const data = await searchStocks(region);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to load stocks' });
-  }
-});
-
-app.get('/api/stocks/:symbol', async (req, res) => {
-  try {
-    const { symbol } = req.params;
-    const data = await getStockQuote(symbol.toUpperCase());
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to load stock quote' });
-  }
-});
-
-app.get('/api/stocks/:symbol/history', async (req, res) => {
-  try {
-    const { symbol } = req.params;
-    const { range = '1d' } = req.query;
-    const data = await getStockHistory(symbol.toUpperCase(), range);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to load stock history' });
-  }
-});
-
-app.get('/api/stocks/:symbol/news', async (req, res) => {
-  try {
-    const { symbol } = req.params;
-    const data = await getStockNews(symbol.toUpperCase());
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to load stock news' });
-  }
-});
-
-app.get('/api/location', async (req, res) => {
-  try {
-    const { lat, lng } = req.query;
-    const data = await getLocationMarket(lat, lng);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to detect location market' });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Tradix backend running on port ${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
