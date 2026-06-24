@@ -1,1 +1,243 @@
-.theme-dark .theme-toggle-btn,.theme-light .theme-toggle-btn{width:42px;height:42px;border-radius:12px;border:1px solid rgba(110,167,162,.55);background:transparent;color:inherit;font-size:1.1rem;display:grid;place-items:center;line-height:1;cursor:pointer}.theme-light .theme-toggle-btn{border-color:#6ea7a2;background:#fff}.nav-actions .pro-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px}.nav-links a.active{opacity:1;font-weight:700}.trend-badge{white-space:nowrap}.detail-side .detail-actions,.detail-side .action-btn,.detail-page .trend-badge,.market-card .trend-badge,.watchlist-item .trend-badge{align-self:flex-start}.detail-page .page-title,.market-page .page-title,.profile-page .page-title,.portfolio-page .page-title,.home-hero .hero-name{line-height:1.1}.detail-page .detail-price{margin-bottom:12px}.detail-page .detail-badge,.stock-ticker,.stock-name,.setting-title,.pro-modal-pill{letter-spacing:.01em}.detail-page .section-title,.market-page .section-title,.portfolio-page .section-title{margin-bottom:0}.detail-news-item .news-thumb,.watchlist-item .watch-icon,.setting-icon,.mini-icon,.stock-icon{flex:0 0 auto}.detail-news-item h3,.news-content h3{line-height:1.2}.range-tabs{display:flex;gap:8px;flex-wrap:wrap}.range-btn{border:none;border-radius:12px;padding:10px 14px;background:#232d3b;color:inherit;font-weight:700}.range-btn.active{background:#6ea7a2;color:#fff}.theme-light .range-btn{background:#eef2f5;color:#233}.theme-light .range-btn.active{background:#6ea7a2;color:#fff}.pro-modal-title,.pro-modal-text,.detail-copy,.news-content p,.detail-news-item p,.text-soft{line-height:1.35}.theme-light .nav-actions .pro-btn{border-color:#6ea7a2}.theme-light .trend-badge{color:#fff}.theme-light .theme-toggle-btn{color:#1b2433}.theme-light .page-title,.theme-light .hero-name,.theme-light .section-title,.theme-light .setting-title,.theme-light .stock-ticker,.theme-light .stock-price,.theme-light .portfolio-total,.theme-light .detail-price,.theme-light .profile-name,.theme-light .pro-modal-title{color:#182031}.theme-light .card-surface,.theme-light .settings-list,.theme-light .profile-card,.theme-light .edit-field,.theme-light .detail-hero,.theme-light .market-card,.theme-light .news-item,.theme-light .watchlist-item,.theme-light .portfolio-banner,.theme-light .detail-side{color:#182031}.theme-light .text-soft,.theme-light .news-time,.theme-light .stock-name,.theme-light .detail-copy,.theme-light .detail-news-item p{color:#6f7b8d}.theme-light .detail-badge,.theme-light .avatar-circle,.theme-light .profile-avatar,.theme-light .stock-icon,.theme-light .setting-icon,.theme-light .mini-icon,.theme-light .watch-icon,.theme-light .detail-company-logo{box-shadow:none}.theme-light .setting-row{border-color:#edf0f4}.theme-light .delete-btn{box-shadow:none}.theme-light .pro-modal{box-shadow:0 22px 70px rgba(0,0,0,.24)}
+/* ===== Light theme polish ===== */
+.theme-light {
+  background: #f3f7f7;
+  color: #182031;
+}
+
+.theme-light .topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e6ebf1;
+  box-shadow: 0 4px 18px rgba(16, 24, 40, 0.04);
+}
+
+.theme-light .topbar-inner {
+  height: 72px;
+}
+
+.theme-light .brand,
+.theme-light .nav-links a,
+.theme-light .pro-btn {
+  color: #182031;
+}
+
+.theme-light .nav-links a {
+  opacity: 0.82;
+}
+
+.theme-light .nav-links a.active,
+.theme-light .nav-links a:hover {
+  opacity: 1;
+}
+
+.theme-light .pro-btn {
+  border-color: #6ea7a2;
+  background: rgba(110, 167, 162, 0.08);
+  box-shadow: none;
+}
+
+.theme-light .theme-toggle-btn {
+  background: #ffffff;
+  border: 1px solid #d9e1ea;
+  color: #182031;
+  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.05);
+}
+
+.theme-light .card-surface,
+.theme-light .market-card,
+.theme-light .news-item,
+.theme-light .profile-card,
+.theme-light .settings-list,
+.theme-light .edit-field,
+.theme-light .detail-hero,
+.theme-light .detail-side,
+.theme-light .portfolio-banner {
+  background: #ffffff;
+  border: 1px solid #e5ebf1;
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.06);
+}
+
+.theme-light .card-surface-inner {
+  background: #ffffff;
+  border: 1px solid #e5ebf1;
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.06);
+}
+
+.theme-light .text-soft,
+.theme-light .stock-name,
+.theme-light .news-time,
+.theme-light .detail-copy,
+.theme-light .detail-news-item p {
+  color: #6f7b8d;
+}
+
+.theme-light .page-title,
+.theme-light .hero-name,
+.theme-light .section-title,
+.theme-light .profile-name,
+.theme-light .setting-title,
+.theme-light .stock-ticker,
+.theme-light .stock-price,
+.theme-light .portfolio-total,
+.theme-light .detail-price,
+.theme-light .pro-modal-title {
+  color: #182031;
+}
+
+.theme-light .trend-badge {
+  color: #ffffff;
+}
+
+.theme-light .trend-badge.success {
+  background: #24c46a;
+}
+
+.theme-light .trend-badge.danger {
+  background: #ef5350;
+}
+
+.theme-light .range-btn,
+.theme-light .mode-btn,
+.theme-light .filter-btn,
+.theme-light .action-btn,
+.theme-light .delete-btn,
+.theme-light .primary-save-btn,
+.theme-light .pro-buy-btn,
+.theme-light .pro-trial-btn {
+  box-shadow: none;
+}
+
+.theme-light .range-btn,
+.theme-light .mode-btn,
+.theme-light .filter-btn {
+  background: #eef2f5;
+  color: #182031;
+}
+
+.theme-light .range-btn.active,
+.theme-light .mode-btn.active,
+.theme-light .filter-btn.active {
+  background: #6ea7a2;
+  color: #fff;
+}
+
+.theme-light .back-btn {
+  background: #eef2f5;
+  color: #182031;
+}
+
+.theme-light .setting-row {
+  border-bottom: 1px solid #edf1f5;
+}
+
+.theme-light .setting-icon,
+.theme-light .mini-icon,
+.theme-light .watch-icon,
+.theme-light .stock-icon,
+.theme-light .detail-company-logo,
+.theme-light .avatar-circle,
+.theme-light .profile-avatar {
+  box-shadow: none;
+}
+
+.theme-light .setting-icon,
+.theme-light .mini-icon {
+  background: #f1f4f8;
+  color: #667083;
+}
+
+.theme-light .watch-icon {
+  background: #f1f4f8;
+  color: #182031;
+}
+
+.theme-light .stock-icon.dark,
+.theme-light .stock-icon.tesla,
+.theme-light .stock-icon.nvidia,
+.theme-light .stock-icon.amazon,
+.theme-light .stock-icon.microsoft,
+.theme-light .stock-icon.google,
+.theme-light .stock-icon.meta,
+.theme-light .stock-icon.jpm,
+.theme-light .stock-icon.bac,
+.theme-light .stock-icon.jnj {
+  color: #ffffff;
+}
+
+.theme-light .news-item {
+  color: #182031;
+}
+
+.theme-light .news-content p {
+  color: #6f7b8d;
+}
+
+.theme-light .news-thumb {
+  background: #f1f4f8;
+}
+
+.theme-light .detail-badge {
+  background: #eef4f4;
+  color: #2f4e4f;
+}
+
+.theme-light .detail-company-logo {
+  background: #f1f4f8;
+  color: #182031;
+}
+
+.theme-light .detail-news-item {
+  border-bottom: 1px solid #edf1f5;
+}
+
+.theme-light .detail-news-item h3 {
+  color: #182031;
+}
+
+.theme-light .detail-news-item p {
+  color: #6f7b8d;
+}
+
+.theme-light .pro-modal {
+  box-shadow: 0 22px 70px rgba(16, 24, 40, 0.16);
+}
+
+.theme-light .pro-modal-backdrop {
+  background: rgba(16, 24, 40, 0.42);
+}
+
+/* Better spacing rhythm */
+.theme-light .card-surface,
+.theme-light .market-card,
+.theme-light .news-item,
+.theme-light .profile-card,
+.theme-light .settings-list,
+.theme-light .edit-field,
+.theme-light .detail-hero,
+.theme-light .detail-side,
+.theme-light .portfolio-banner {
+  border-radius: 18px;
+}
+
+.theme-light .setting-row,
+.theme-light .detail-news-item,
+.theme-light .watchlist-item {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.theme-light .nav-actions {
+  gap: 10px;
+}
+
+/* Keep switches visually clean */
+.theme-light .switch span {
+  background: #d7dfe8;
+}
+
+.theme-light .switch input:checked + span {
+  background: #6ea7a2;
+}
+
+.theme-light .switch span:before {
+  background: #ffffff;
+}
