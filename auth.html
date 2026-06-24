@@ -20,7 +20,10 @@
           <a href="portfolio.html" data-nav="portfolio">Portfolio</a>
           <a class="active" href="auth.html" data-nav="profile">Profile</a>
         </div>
-        <a class="pro-btn" href="#" id="openProModal">⟡ Upgrade to Pro</a>
+        <div class="nav-actions d-flex align-items-center gap-2 gap-lg-3">
+          <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
+          <a class="pro-btn" href="#" id="openProModal">⟡ Upgrade to Pro</a>
+        </div>
       </div>
     </nav>
 
@@ -50,7 +53,7 @@
           <div class="settings-group mt-4">
             <div class="settings-label">Preferences</div>
             <div class="card-surface settings-list">
-              <div class="setting-row toggle-row"><div class="setting-icon">☾</div><div><div class="setting-title">Dark Mode</div><div class="text-soft small">Enabled</div></div><label class="switch"><input type="checkbox" checked /><span></span></label></div>
+              <div class="setting-row toggle-row"><div class="setting-icon" data-theme-icon>☾</div><div><div class="setting-title" data-theme-label>Dark Mode</div><div class="text-soft small">Enabled</div></div><label class="switch"><input type="checkbox" data-theme-toggle checked /><span></span></label></div>
             </div>
           </div>
 
