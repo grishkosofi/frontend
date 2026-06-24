@@ -63,22 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setActiveNav();
 
-  const setTheme = (theme) => {
+  const applyTheme = (theme) => {
     body.classList.remove('theme-dark', 'theme-light');
     body.classList.add(theme);
     if (themeToggle) themeToggle.textContent = theme === 'theme-dark' ? '☼' : '☾';
+    document.querySelectorAll('[data-theme-icon]').forEach((icon) => {
+      icon.textContent = theme === 'theme-dark' ? '☾' : '☼';
+    });
+    document.querySelectorAll('[data-theme-label]').forEach((label) => {
+      label.textContent = theme === 'theme-dark' ? 'Light Mode' : 'Dark Mode';
+    });
   };
 
   const savedTheme = localStorage.getItem('stockpulse-theme') || 'theme-dark';
-  setTheme(savedTheme);
+  applyTheme(savedTheme);
+
+  const toggleTheme = () => {
+    const next = body.classList.contains('theme-dark') ? 'theme-light' : 'theme-dark';
+    applyTheme(next);
+    localStorage.setItem('stockpulse-theme', next);
+  };
 
   if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const next = body.classList.contains('theme-dark') ? 'theme-light' : 'theme-dark';
-      setTheme(next);
-      localStorage.setItem('stockpulse-theme', next);
-    });
+    themeToggle.addEventListener('click', toggleTheme);
   }
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((el) => {
+    el.addEventListener('click', toggleTheme);
+  });
 
   const setMode = (mode) => {
     const isRegister = mode === 'register';
