@@ -94,11 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', toggleTheme);
   });
 
-  let authMode = 'login';
-
   const setMode = (mode) => {
     const isRegister = mode === 'register';
-    authMode = mode;
     loginTab?.classList.toggle('active', !isRegister);
     registerTab?.classList.toggle('active', isRegister);
     loginTab?.setAttribute('aria-selected', (!isRegister).toString());
@@ -113,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setMode('login');
 
   authForm?.addEventListener('submit', (e) => {
-    if (authMode === 'login') {
+    const isRegister = registerTab?.classList.contains('active');
+    if (!isRegister) {
       e.preventDefault();
       go('home');
     }
