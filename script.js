@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('themeToggle');
   const loginTab = document.getElementById('loginTab');
   const registerTab = document.getElementById('registerTab');
+  const authForm = document.getElementById('authForm');
   const nameGroup = document.getElementById('nameGroup');
   const submitBtn = document.getElementById('submitBtn');
   const loginMeta = document.getElementById('loginMeta');
-  const loginDivider = document.getElementById('loginDivider');
-  const socialButtons = document.getElementById('socialButtons');
   const modeButtons = document.querySelectorAll('.mode-btn');
   const stocksGrid = document.getElementById('stocksGrid');
   const newsList = document.getElementById('newsList');
@@ -103,14 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
     registerTab?.setAttribute('aria-selected', isRegister.toString());
     nameGroup?.classList.toggle('d-none', !isRegister);
     loginMeta?.classList.toggle('d-none', isRegister);
-    loginDivider?.classList.toggle('d-none', isRegister);
-    socialButtons?.classList.toggle('d-none', isRegister);
     if (submitBtn) submitBtn.textContent = isRegister ? 'Create Account' : 'Log in';
   };
 
   loginTab?.addEventListener('click', () => setMode('login'));
   registerTab?.addEventListener('click', () => setMode('register'));
   setMode('login');
+
+  authForm?.addEventListener('submit', (e) => {
+    const isRegister = registerTab?.classList.contains('active');
+    if (!isRegister) {
+      e.preventDefault();
+      go('home');
+    }
+  });
 
   modeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
