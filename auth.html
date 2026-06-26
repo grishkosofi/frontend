@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StockPulse | Profile</title>
+    <title>Tradix | Authentication</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="app-theme theme-dark">
-    <nav class="topbar">
+    <nav class="topbar auth-topbar">
       <div class="topbar-inner container-fluid">
         <a class="brand" href="index.html" data-nav="home"><span class="brand-mark">TX</span><span class="brand-name">Tradix</span></a>
         <div class="nav-links d-none d-lg-flex">
@@ -27,73 +27,46 @@
       </div>
     </nav>
 
-    <main class="container py-5 profile-page">
-      <h1 class="page-title mb-4">Profile and Settings</h1>
+    <main class="container auth-page py-5">
+      <section class="auth-shell mx-auto text-center">
+        <div class="auth-logo" aria-hidden="true">TX</div>
+        <p class="auth-kicker mb-2">Secure access</p>
+        <h1 class="auth-heading mb-4">Welcome to Tradix!</h1>
 
-      <section class="row g-4">
-        <div class="col-lg-4">
-          <div class="profile-card card-surface p-4 text-center mb-3">
-            <div class="profile-avatar">MS</div>
-            <h2 class="profile-name">Mary Sims</h2>
-            <p class="text-soft mb-0">mary.sims@email.com</p>
+        <div class="auth-card card-surface text-start">
+          <div class="auth-tabs" role="tablist" aria-label="Authentication tabs">
+            <button class="auth-tab" id="loginTab" type="button" role="tab" aria-selected="true">Log in</button>
+            <button class="auth-tab" id="registerTab" type="button" role="tab" aria-selected="false">Register</button>
           </div>
-          <a class="pro-outline-btn" href="#" id="openProModal2">⟡ Upgrade to Pro</a>
-        </div>
 
-        <div class="col-lg-8">
-          <div class="settings-group">
-            <div class="settings-label">Account Information</div>
-            <div class="card-surface settings-list">
-              <div class="setting-row"><div class="setting-icon">👤</div><div><div class="setting-title">Personal Information</div><div class="text-soft small">Name, email, phone</div></div><div class="chevron">›</div></div>
-              <div class="setting-row"><div class="setting-icon">🔒</div><div><div class="setting-title">Security & Privacy</div><div class="text-soft small">Password, 2FA, biometrics</div></div><div class="chevron">›</div></div>
-              <div class="setting-row"><div class="setting-icon">💳</div><div><div class="setting-title">Payment Methods</div><div class="text-soft small">Manage cards & account</div></div><div class="chevron">›</div></div>
+          <form class="auth-form" action="#" method="post">
+            <div class="auth-field d-none" id="nameGroup">
+              <label for="authName">Name</label>
+              <input id="authName" name="name" type="text" autocomplete="name" placeholder="Your full name" />
             </div>
-          </div>
 
-          <div class="settings-group mt-4">
-            <div class="settings-label">Preferences</div>
-            <div class="card-surface settings-list">
-              <div class="setting-row toggle-row"><div class="setting-icon" data-theme-icon>☾</div><div><div class="setting-title" data-theme-label>Dark Mode</div><div class="text-soft small">Enabled</div></div><label class="switch"><input type="checkbox" data-theme-toggle checked /><span></span></label></div>
+            <div class="auth-field">
+              <label for="authEmail">Email</label>
+              <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
             </div>
-          </div>
 
-          <div class="settings-group mt-4">
-            <div class="settings-label">Notifications</div>
-            <div class="card-surface settings-list">
-              <div class="setting-row toggle-row"><div><div class="setting-title">Market News</div><div class="text-soft small">Breaking news updates</div></div><label class="switch"><input type="checkbox" checked /><span></span></label></div>
-              <div class="setting-row toggle-row"><div><div class="setting-title">Portfolio Updates</div><div class="text-soft small">Performance reports</div></div><label class="switch"><input type="checkbox" /><span></span></label></div>
-              <div class="setting-row toggle-row"><div><div class="setting-title">Marketing</div><div class="text-soft small">Promotions & Tips</div></div><label class="switch"><input type="checkbox" /><span></span></label></div>
+            <div class="auth-field">
+              <label for="authPassword">Password</label>
+              <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
             </div>
-          </div>
 
-          <div class="settings-group mt-4">
-            <div class="settings-label">Account Information</div>
-            <div class="card-surface settings-list">
-              <div class="setting-row"><div class="setting-icon">?</div><div><div class="setting-title">Help Center</div><div class="text-soft small">FAQs and support</div></div><div class="chevron">›</div></div>
-              <div class="setting-row"><div class="setting-icon">📄</div><div><div class="setting-title">Terms & Conditions</div><div class="text-soft small">Legal documents</div></div><div class="chevron">›</div></div>
+            <div class="auth-meta" id="loginMeta">
+              <a href="#" class="auth-forgot-link">Forgot password?</a>
             </div>
-          </div>
 
-          <button class="delete-btn mt-4">🗑 Delete Account</button>
-        </div>
-      </section>
+            <button id="submitBtn" type="submit" class="auth-submit-btn">Log in</button>
+          </form>
 
-      <section class="mt-5 profile-edit card-surface p-4 p-lg-4">
-        <div class="edit-header d-flex align-items-center gap-3 mb-4"><button class="back-btn">←</button><h2 class="section-title mb-0">Personal Information</h2></div>
-        <div class="edit-form-col">
-          <div class="edit-field card-surface-inner">
-            <label>Name</label>
-            <div class="input-wrap"><span class="mini-icon">👤</span><input value="Mary" placeholder="Enter your new last name" /></div>
+          <div class="auth-divider" id="loginDivider">or continue with</div>
+          <div class="auth-social" id="socialButtons">
+            <button type="button" class="auth-social-btn">Google</button>
+            <button type="button" class="auth-social-btn">Apple</button>
           </div>
-          <div class="edit-field card-surface-inner">
-            <label>Phone</label>
-            <div class="input-wrap"><span class="mini-icon">📞</span><input value="+0000000000" /></div>
-          </div>
-          <div class="edit-field card-surface-inner">
-            <label>Email</label>
-            <div class="input-wrap"><span class="mini-icon">@</span><input value="********@email.com" /></div>
-          </div>
-          <button class="primary-save-btn">Save & Exit</button>
         </div>
       </section>
     </main>
