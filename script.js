@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const modeButtons = document.querySelectorAll('.mode-btn');
   const stocksGrid = document.getElementById('stocksGrid');
   const newsList = document.getElementById('newsList');
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('stockpulse-user');
+      sessionStorage.clear();
+      window.location.href = 'auth.html';
+    });
+  }
+
   const openProModalButtons = [document.getElementById('openProModal'), document.getElementById('openProModal2')].filter(Boolean);
   const closeProModal = document.getElementById('closeProModal');
   const proModal = document.getElementById('proModal');
@@ -23,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     home: 'index.html',
     markets: 'market.html',
     portfolio: 'portfolio.html',
-    profile: 'auth.html',
+    profile: 'profile.html',
     detail: 'detail.html',
     pro: 'pro.html'
   };
